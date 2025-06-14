@@ -1,0 +1,32 @@
+server:
+  port: 8082
+
+# Configura��es Application e H2 Database
+spring:
+  application:
+    name: spring-boot-openapi-demo
+  h2:
+    console:
+      enabled: true
+    datasource:
+      url: jdbc:h2:mem:flow-cortex-db
+      driverClassName: org.h2.Driver
+      username: chronus
+      password: senh@123
+    jpa:
+      database-platform: org.hibernate.dialect.H2Dialect
+      show-sql: true
+      properties:
+        hibernate:
+          format_sql: true
+
+# Configura��es do SpringDoc OpenAPI
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    operations-sorter: method
+    tags-sorter: alpha
+  show-actuator: false
