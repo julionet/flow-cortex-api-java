@@ -1,7 +1,7 @@
 server:
   port: 8082
 
-# Configura��es Application e H2 Database
+# Configurações Application e H2 Database
 spring:
   application:
     name: spring-boot-openapi-demo
@@ -20,7 +20,7 @@ spring:
         hibernate:
           format_sql: true
 
-# Configura��es do SpringDoc OpenAPI
+# Configurações do SpringDoc OpenAPI
 springdoc:
   api-docs:
     path: /api-docs
@@ -30,3 +30,7 @@ springdoc:
     operations-sorter: method
     tags-sorter: alpha
   show-actuator: false
+
+jwt:
+  secret: afsdkjasjflxswafsdklk434orqiwup3457u-34oewir4irroqwiffv48mfs
+  expiration: 3600
