@@ -14,21 +14,21 @@ import lombok.Setter;
 @Setter
 public class CredencialEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, length = 255)
+    @Column(name = "clientid", nullable = false, unique = true, length = 255)
     private String clientId;
 
-    @Column(nullable = false, length = 255)
+    @Column(name = "clientsecret", nullable = false, length = 255)
     private String clientSecret;
 
-    @Column(nullable = false, length = 255)
+    @Column(name = "granttypes", nullable = false, length = 255)
     private String grantTypes;
 
-    @Column(nullable = false, length = 255)
+    @Column(name = "scopes", nullable = false, length = 255)
     private String scopes;
 
-    @Column(nullable = false)
+    @Column(name = "active", nullable = false)
     private boolean active;
 }

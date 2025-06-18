@@ -6,4 +6,6 @@ import java.util.Optional;
 
 public interface CredencialRepositoryPort {
     Optional<Credencial> getByClientIdAndActive(String clientId);
+    Long count();
+    void save(Credencial entity);
 }

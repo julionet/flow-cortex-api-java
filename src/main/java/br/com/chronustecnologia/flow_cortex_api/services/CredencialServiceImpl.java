@@ -9,7 +9,6 @@ import br.com.chronustecnologia.flow_cortex_api.ports.out.CredencialRepositoryPo
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
@@ -22,7 +21,6 @@ import java.util.Set;
 @Service
 public class CredencialServiceImpl implements CredencialServicePort {
     private final CredencialRepositoryPort credencialRepository;
-    private final PasswordEncoder passwordEncoder;
 
     @Value("${jwt.secret}")
     private String secret;
@@ -30,25 +28,24 @@ public class CredencialServiceImpl implements CredencialServicePort {
     @Value("${jwt.expiration}")
     private Long expiration;
 
-    public CredencialServiceImpl(CredencialRepositoryPort credencialRepository, PasswordEncoder passwordEncoder) {
+    public CredencialServiceImpl(CredencialRepositoryPort credencialRepository) {
         this.credencialRepository = credencialRepository;
-        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public TokenResponse authenticate(TokenRequest request) {
-        if (!"client_credentials".equals(request.getGrantType())) {
+        if (!"client_credentials".equals(request.getGrant_type())) {
             throw new BadRequestException("Grant type não suportado");
         }
 
-        Credencial credencial = credencialRepository.getByClientIdAndActive(request.getClientId())
+        Credencial credencial = credencialRepository.getByClientIdAndActive(request.getClient_id())
                 .orElseThrow(() -> new BadRequestException("Cliente não encontrado"));
 
-        if (!passwordEncoder.matches(request.getClientSecret(), credencial.getClientSecret())) {
+        if (!request.getClient_secret().equals(credencial.getClientSecret())) {
             throw new BadRequestException("Credenciais inválidas");
         }
 
-        if (!Arrays.asList(credencial.getGrantTypes().split(",")).contains("client_credentials")) {
+        if (!Arrays.asList(credencial.getGrantTypes().split(",")).contains(request.getGrant_type())) {
             throw new BadRequestException("Grant type não permitido para este cliente");
         }
 
