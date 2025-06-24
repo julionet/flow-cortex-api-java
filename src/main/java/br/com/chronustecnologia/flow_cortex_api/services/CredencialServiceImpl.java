@@ -1,5 +1,6 @@
 package br.com.chronustecnologia.flow_cortex_api.services;
 
+import br.com.chronustecnologia.flow_cortex_api.config.DatabaseInitializer;
 import br.com.chronustecnologia.flow_cortex_api.domain.Credencial;
 import br.com.chronustecnologia.flow_cortex_api.dto.TokenRequest;
 import br.com.chronustecnologia.flow_cortex_api.dto.TokenResponse;
@@ -8,6 +9,8 @@ import br.com.chronustecnologia.flow_cortex_api.ports.in.CredencialServicePort;
 import br.com.chronustecnologia.flow_cortex_api.ports.out.CredencialRepositoryPort;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +23,7 @@ import java.util.Set;
 
 @Service
 public class CredencialServiceImpl implements CredencialServicePort {
+    private static final Logger logger = LoggerFactory.getLogger(CredencialServiceImpl.class);
     private final CredencialRepositoryPort credencialRepository;
 
     @Value("${jwt.secret}")
@@ -35,6 +39,7 @@ public class CredencialServiceImpl implements CredencialServicePort {
     @Override
     public TokenResponse authenticate(TokenRequest request) {
         if (!"client_credentials".equals(request.getGrant_type())) {
+            logger.error("Grant type não suportado");
             throw new BadRequestException("Grant type não suportado");
         }
 
@@ -42,10 +47,12 @@ public class CredencialServiceImpl implements CredencialServicePort {
                 .orElseThrow(() -> new BadRequestException("Cliente não encontrado"));
 
         if (!request.getClient_secret().equals(credencial.getClientSecret())) {
+            logger.error("Credenciais inválidas");
             throw new BadRequestException("Credenciais inválidas");
         }
 
         if (!Arrays.asList(credencial.getGrantTypes().split(",")).contains(request.getGrant_type())) {
+            logger.error("Grant type não permitido para este cliente");
             throw new BadRequestException("Grant type não permitido para este cliente");
         }
 
@@ -83,6 +90,7 @@ public class CredencialServiceImpl implements CredencialServicePort {
         requested.retainAll(allowed);
 
         if (requested.isEmpty()) {
+            logger.error("Nenhum scope válido solicitado");
             throw new RuntimeException("Nenhum scope válido solicitado");
         }
 

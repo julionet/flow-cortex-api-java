@@ -2,6 +2,8 @@ package br.com.chronustecnologia.flow_cortex_api.config;
 
 import br.com.chronustecnologia.flow_cortex_api.domain.Credencial;
 import br.com.chronustecnologia.flow_cortex_api.ports.out.CredencialRepositoryPort;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -10,6 +12,7 @@ import br.com.chronustecnologia.flow_cortex_api.repositories.CredencialRepositor
 @Component
 public class DatabaseInitializer implements ApplicationRunner {
 
+    private static final Logger logger = LoggerFactory.getLogger(DatabaseInitializer.class);
     private final CredencialRepositoryPort credencialRepository;
 
     public DatabaseInitializer(CredencialRepository credencialRepository) {
@@ -23,7 +26,7 @@ public class DatabaseInitializer implements ApplicationRunner {
 
     private void initializeCredentials() {
         if (credencialRepository.count() == 0) {
-            System.out.println("Inicializando credenciais padrão...");
+            logger.info("Inicializando credenciais padrão...");
 
             Credencial credencial = new Credencial(null,
                     "f7ceb9314837e67e1a68819a8e2996e64764fffb5fe7f2fe815de1ed16a14b79",
@@ -34,9 +37,9 @@ public class DatabaseInitializer implements ApplicationRunner {
 
             credencialRepository.save(credencial);
 
-            System.out.println("Credencial padrão criada: " + credencial.getClientId());
+            logger.info("Credencial padrão criada: {}", credencial.getClientId());
         } else {
-            System.out.println("Credenciais já existem no banco, pulando inicialização...");
+            logger.warn("Credenciais já existem no banco, pulando inicialização...");
         }
     }
 }
