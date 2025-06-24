@@ -1,9 +1,8 @@
 package br.com.chronustecnologia.flow_cortex_api.services;
 
-import br.com.chronustecnologia.flow_cortex_api.config.DatabaseInitializer;
 import br.com.chronustecnologia.flow_cortex_api.domain.Credencial;
-import br.com.chronustecnologia.flow_cortex_api.dto.TokenRequest;
-import br.com.chronustecnologia.flow_cortex_api.dto.TokenResponse;
+import br.com.chronustecnologia.flow_cortex_api.dto.credencial.TokenRequest;
+import br.com.chronustecnologia.flow_cortex_api.dto.credencial.TokenResponse;
 import br.com.chronustecnologia.flow_cortex_api.exceptions.BadRequestException;
 import br.com.chronustecnologia.flow_cortex_api.ports.in.CredencialServicePort;
 import br.com.chronustecnologia.flow_cortex_api.ports.out.CredencialRepositoryPort;

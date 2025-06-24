@@ -1,7 +1,7 @@
 package br.com.chronustecnologia.flow_cortex_api.controller;
 
-import br.com.chronustecnologia.flow_cortex_api.dto.TokenRequest;
-import br.com.chronustecnologia.flow_cortex_api.dto.TokenResponse;
+import br.com.chronustecnologia.flow_cortex_api.dto.credencial.TokenRequest;
+import br.com.chronustecnologia.flow_cortex_api.dto.credencial.TokenResponse;
 import br.com.chronustecnologia.flow_cortex_api.ports.in.CredencialServicePort;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

@@ -1,4 +1,4 @@
-package br.com.chronustecnologia.flow_cortex_api.dto;
+package br.com.chronustecnologia.flow_cortex_api.dto.credencial;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
