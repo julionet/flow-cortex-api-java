@@ -68,6 +68,7 @@ jwt:
   secret: afsdkjasjflxswafsdklk434orqiwup3457u-34oewir4irroqwiffv48mfs
   expiration: 3600
 
+# Configurações do Feign
 app:
   auth:
     service:
