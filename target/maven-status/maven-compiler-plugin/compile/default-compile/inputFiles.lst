@@ -1,27 +1,46 @@
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/FlowCortextApiApplication.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/config/AppConfig.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/config/DatabaseInitializer.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/config/JwtAuthenticationFilter.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/config/MapperConfig.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/config/OpenApiConfig.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/config/SecurityConfig.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/controller/AppController.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/controller/AuthController.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/domain/Credencial.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/dto/AppResponse.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/dto/ErrorResponse.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/dto/TokenRequest.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/dto/TokenResponse.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/entities/CredencialEntity.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/exceptions/BadRequestException.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/exceptions/GlobalExceptionHandler.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/exceptions/ResourceNotFoundException.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/exceptions/ValidationException.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/mapper/CredencialMapper.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/ports/in/CredencialServicePort.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/ports/in/JwtServicePort.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/ports/out/CredencialRepositoryPort.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/repositories/CredencialRepository.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/repositories/JpaCredencialRepository.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/services/CredencialServiceImpl.java
-/Users/jose.julio.ext/Java/flow-cortex-api-java/src/main/java/br/com/chronustecnologia/flow_cortex_api/services/JwtServiceImpl.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\config\AppConfig.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\config\DatabaseInitializer.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\config\JwtAuthenticationFilter.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\config\MapperConfig.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\config\OpenApiConfig.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\config\SecurityConfig.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\controller\AuthController.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\controller\IntegracaoController.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\domain\Credencial.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\domain\Integracao.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\dto\credencial\TokenRequest.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\dto\credencial\TokenResponse.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\dto\ErrorResponse.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\dto\integracao\IntegracaoRequest.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\dto\integracao\IntegracaoResponse.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\entities\CredencialEntity.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\entities\IntegracaoEntity.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\exceptions\BadRequestException.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\exceptions\GlobalExceptionHandler.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\exceptions\ResourceNotFoundException.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\exceptions\ValidationException.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\external\login\application\AuthenticationUseCase.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\external\login\domain\AuthenticationException.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\external\login\domain\AuthenticationPort.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\external\login\domain\ErrorResponse.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\external\login\domain\LoginRequest.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\external\login\domain\LoginResponse.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\external\login\infrastructure\AuthenticationAdapter.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\external\login\infrastructure\AuthErrorDecoder.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\external\login\infrastructure\AuthFeignClient.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\external\login\infrastructure\AuthFeignConfiguration.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\FlowCortextApiApplication.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\mapper\CredencialMapper.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\mapper\IntegracaoMapper.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\ports\in\CredencialServicePort.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\ports\in\IntegracaoServicePort.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\ports\in\JwtServicePort.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\ports\out\CredencialRepositoryPort.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\ports\out\IntegracaoRepositoryPort.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\repositories\CredencialRepository.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\repositories\IntegracaoRepository.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\repositories\JpaCredencialRepository.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\repositories\JpaIntegracaoRepository.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\services\CredencialServiceImpl.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\services\IntegracaoServiceImpl.java
+D:\Java Projects\flow-cortex-api-java\src\main\java\br\com\chronustecnologia\flow_cortex_api\services\JwtServiceImpl.java

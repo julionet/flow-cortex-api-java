@@ -47,4 +47,7 @@ public class IntegracaoResponse {
 
     @Schema(description = "Status da configuração (ativo/inativo)")
     private boolean active;
+
+    @Schema(description = "Nome e modelo utilizado")
+    private String nameModel;
 }

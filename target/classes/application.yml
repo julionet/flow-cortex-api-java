@@ -67,3 +67,16 @@ logging:
 jwt:
   secret: afsdkjasjflxswafsdklk434orqiwup3457u-34oewir4irroqwiffv48mfs
   expiration: 3600
+
+app:
+  auth:
+    service:
+      url: http://localhost:8000
+
+feign:
+  client:
+    config:
+      auth-service:
+        connectTimeout: 5000
+        readTimeout: 10000
+        loggerLevel: full

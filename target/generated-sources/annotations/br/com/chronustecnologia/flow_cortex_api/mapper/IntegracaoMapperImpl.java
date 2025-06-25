@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-06-24T18:39:16-0300",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.7 (Amazon.com Inc.)"
+    date = "2025-06-24T23:32:48-0300",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.6 (Amazon.com Inc.)"
 )
 @Component
 public class IntegracaoMapperImpl implements IntegracaoMapper {
@@ -87,6 +87,8 @@ public class IntegracaoMapperImpl implements IntegracaoMapper {
         integracaoResponse.setPresencePenalty( domain.getPresencePenalty() );
         integracaoResponse.setTimeoutSeconds( domain.getTimeoutSeconds() );
         integracaoResponse.setActive( domain.isActive() );
+
+        integracaoResponse.setNameModel( mapNameModel(domain) );
 
         return integracaoResponse;
     }
