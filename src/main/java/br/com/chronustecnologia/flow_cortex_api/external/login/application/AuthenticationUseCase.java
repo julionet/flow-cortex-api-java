@@ -1,7 +1,7 @@
 package br.com.chronustecnologia.flow_cortex_api.external.login.application;
 
 import br.com.chronustecnologia.flow_cortex_api.external.login.domain.AuthenticationException;
-import br.com.chronustecnologia.flow_cortex_api.external.login.domain.AuthenticationPort;
+import br.com.chronustecnologia.flow_cortex_api.external.login.domain.AuthenticationServicePort;
 import br.com.chronustecnologia.flow_cortex_api.external.login.domain.LoginRequest;
 import br.com.chronustecnologia.flow_cortex_api.external.login.domain.LoginResponse;
 import org.springframework.stereotype.Service;
@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class AuthenticationUseCase {
 
-    private final AuthenticationPort authenticationPort;
+    private final AuthenticationServicePort authenticationPort;
 
-    public AuthenticationUseCase(AuthenticationPort authenticationPort) {
+    public AuthenticationUseCase(AuthenticationServicePort authenticationPort) {
         this.authenticationPort = authenticationPort;
     }
 
