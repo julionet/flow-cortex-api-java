@@ -29,6 +29,11 @@ public class JwtServiceImpl implements JwtServicePort {
     }
 
     @Override
+    public String getClientIdFromToken(String token) {
+        return getClaimFromToken(token, Claims::getSubject);
+    }
+
+    @Override
     public Date getExpirationDateFromToken(String token) {
         return getClaimFromToken(token, Claims::getExpiration);
     }
@@ -41,6 +46,28 @@ public class JwtServiceImpl implements JwtServicePort {
         } catch (JwtException | IllegalArgumentException e) {
             return false;
         }
+    }
+
+    @Override
+    public boolean validateClientToken(String token, String expectedClientId) {
+        try {
+            Claims claims = getAllClaimsFromToken(token);
+            String clientId = claims.getSubject();
+            String type = claims.get("type", String.class);
+            Date expiration = claims.getExpiration();
+
+            return "CLIENT".equals(type) &&
+                    clientId.equals(expectedClientId) &&
+                    !expiration.before(new Date());
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    @Override
+    public String getScope(String token) {
+        Claims claims = getAllClaimsFromToken(token);
+        return claims.get("scope", String.class);
     }
 
     private <T> T getClaimFromToken(String token, Function<Claims, T> claimsResolver) {

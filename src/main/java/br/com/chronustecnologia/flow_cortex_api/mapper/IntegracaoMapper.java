@@ -6,6 +6,7 @@ import br.com.chronustecnologia.flow_cortex_api.dto.integracao.IntegracaoRespons
 import br.com.chronustecnologia.flow_cortex_api.entities.IntegracaoEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 
@@ -29,5 +30,10 @@ public interface IntegracaoMapper {
         return domain.getName() + " " + domain.getModel();
     }
 
+    @Mapping(target = "createdAt", ignore = true)
+    @Mapping(target = "updatedAt", ignore = true)
     Integracao dtoToDomain(IntegracaoRequest dto);
+
+    @Mapping(target = "createdAt", ignore = true)
+    void updateEntity(@MappingTarget Integracao newEntity, Integracao oldEntity);
 }

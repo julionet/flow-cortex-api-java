@@ -6,6 +6,9 @@ import java.util.Date;
 
 public interface JwtServicePort {
     String getUsernameFromToken(String token);
+    String getClientIdFromToken(String token);
     Date getExpirationDateFromToken(String token);
     Boolean validateToken(String token, UserDetails userDetails);
+    boolean validateClientToken(String token, String expectedClientId);
+    String getScope(String token);
 }

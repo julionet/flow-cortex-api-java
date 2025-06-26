@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-06-25T17:53:07-0300",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.7 (Amazon.com Inc.)"
+    date = "2025-06-25T23:36:01-0300",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.6 (Amazon.com Inc.)"
 )
 @Component
 public class IntegracaoMapperImpl implements IntegracaoMapper {
@@ -115,5 +115,26 @@ public class IntegracaoMapperImpl implements IntegracaoMapper {
         integracao.setActive( dto.isActive() );
 
         return integracao;
+    }
+
+    @Override
+    public void updateEntity(Integracao newEntity, Integracao oldEntity) {
+        if ( oldEntity == null ) {
+            return;
+        }
+
+        newEntity.setId( oldEntity.getId() );
+        newEntity.setName( oldEntity.getName() );
+        newEntity.setApiKey( oldEntity.getApiKey() );
+        newEntity.setOrganizationId( oldEntity.getOrganizationId() );
+        newEntity.setModel( oldEntity.getModel() );
+        newEntity.setTemperature( oldEntity.getTemperature() );
+        newEntity.setMaxTokens( oldEntity.getMaxTokens() );
+        newEntity.setTopP( oldEntity.getTopP() );
+        newEntity.setFrequencyPenalty( oldEntity.getFrequencyPenalty() );
+        newEntity.setPresencePenalty( oldEntity.getPresencePenalty() );
+        newEntity.setTimeoutSeconds( oldEntity.getTimeoutSeconds() );
+        newEntity.setUpdatedAt( oldEntity.getUpdatedAt() );
+        newEntity.setActive( oldEntity.isActive() );
     }
 }

@@ -7,6 +7,7 @@ import br.com.chronustecnologia.flow_cortex_api.mapper.IntegracaoMapper;
 import br.com.chronustecnologia.flow_cortex_api.ports.in.IntegracaoServicePort;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +31,7 @@ public class IntegracaoController {
             description = "Insere uma nova configuração para integração com ChatGPT"
     )
     @PostMapping
-    public ResponseEntity<IntegracaoResponse> post(IntegracaoRequest request) {
+    public ResponseEntity<IntegracaoResponse> post(@Valid @RequestBody IntegracaoRequest request) {
         Integracao response = integracaoService.create(integracaoMapper.dtoToDomain(request));
         return ResponseEntity.ok(integracaoMapper.domainToDto(response));
     }
@@ -40,7 +41,7 @@ public class IntegracaoController {
             description = "Altera uma configuração para integração com ChatGPT"
     )
     @PutMapping
-    public ResponseEntity<IntegracaoResponse> put(IntegracaoRequest request) {
+    public ResponseEntity<IntegracaoResponse> put(@Valid @RequestBody IntegracaoRequest request) {
         Integracao response = integracaoService.update(integracaoMapper.dtoToDomain(request));
         return ResponseEntity.ok(integracaoMapper.domainToDto(response));
     }
@@ -50,7 +51,7 @@ public class IntegracaoController {
             description = "Exclui uma configuração para integração com ChatGPT"
     )
     @DeleteMapping("{id}")
-    public ResponseEntity<?> delete(Long id) {
+    public ResponseEntity<?> delete(@PathVariable Long id) {
         integracaoService.delete(id);
         return ResponseEntity.ok().build();
     }
@@ -60,7 +61,7 @@ public class IntegracaoController {
             description = "Seleciona uma configuração para integração com ChatGPT pelo ID"
     )
     @GetMapping("{id}")
-    public ResponseEntity<IntegracaoResponse> getById(Long id) {
+    public ResponseEntity<IntegracaoResponse> getById(@PathVariable Long id) {
         Integracao response = integracaoService.getById(id);
         return ResponseEntity.ok(integracaoMapper.domainToDto(response));
     }

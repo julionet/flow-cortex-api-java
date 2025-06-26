@@ -15,10 +15,7 @@ import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class CredencialServiceImpl implements CredencialServicePort {
@@ -62,9 +59,14 @@ public class CredencialServiceImpl implements CredencialServicePort {
         return new TokenResponse(token, "Bearer", expiration, validatedScope);
     }
 
+    @Override
+    public Optional<Credencial> getByClientId(String clientId) {
+        return credencialRepository.getByClientIdAndActive(clientId);
+    }
+
     private String generateToken(String clientId, String scope) {
         Date now = new Date();
-        Date expiry = new Date(now.getTime() + expiration);
+        Date expiry = new Date(now.getTime() +(expiration * 1000));
 
         SecretKey key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
 
@@ -72,6 +74,7 @@ public class CredencialServiceImpl implements CredencialServicePort {
                 .subject(clientId)
                 .claim("scope", scope)
                 .claim("token_type", "Bearer")
+                .claim("type", "CLIENT")
                 .issuedAt(now)
                 .expiration(expiry)
                 .signWith(key, Jwts.SIG.HS256)

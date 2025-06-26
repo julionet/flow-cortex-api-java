@@ -29,8 +29,8 @@ public class DatabaseInitializer implements ApplicationRunner {
             logger.info("Inicializando credenciais padrão...");
 
             Credencial credencial = new Credencial(null,
-                    "f7ceb9314837e67e1a68819a8e2996e64764fffb5fe7f2fe815de1ed16a14b79",
                     "1120969a-a1e7-4480-9cc8-c205b1a34433",
+                    "f7ceb9314837e67e1a68819a8e2996e64764fffb5fe7f2fe815de1ed16a14b79",
                     "client_credentials",
                     "admin",
                     true);

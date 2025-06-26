@@ -1,5 +1,6 @@
 package br.com.chronustecnologia.flow_cortex_api.dto.integracao;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -24,10 +25,12 @@ public class IntegracaoRequest {
     @Schema(description = "Chave da API da OpenAI para autenticação")
     @NotBlank(message = "Apikey não informada")
     @Size(max = 100, message = "Apikey não pode ter mais de 100 caracteres")
+    @JsonProperty("api_key")
     private String apiKey;
 
     @Schema(description = "ID da organização na OpenAI (opcional)")
     @Size(max = 50, message = "ID da organização não pode ter mais de 50 caracteres")
+    @JsonProperty("organization_id")
     private String organizationId;
 
     @Schema(description = "Modelo do ChatGPT a ser utilizado (ex: gpt-3.5-turbo, gpt-4)")
@@ -41,22 +44,27 @@ public class IntegracaoRequest {
 
     @Schema(description = "Limite máximo de tokens na resposta")
     @Min(value = 0, message = "Limite máximo de tokens deve ser maior ou igual a 0")
+    @JsonProperty("max_tokens")
     private int maxTokens;
 
     @Schema(description = "Diversidade do texto (nucleation sampling)")
     @DecimalMin(value = "0.0", message = "Diversidade do texto deve ser maior ou igual a 0.0")
+    @JsonProperty("top_p")
     private double topP;
 
     @Schema(description = "Penalidade para repetição de frequência")
     @DecimalMin(value = "0.0", message = "Penalidade para repetição de frequência deve ser maior ou igual a 0.0")
+    @JsonProperty("frequency_penalty")
     private double frequencyPenalty;
 
     @Schema(description = "Penalidade para repetição de tópicos")
     @DecimalMin(value = "0.0", message = "Penalidade para repetição de tópicos deve ser maior ou igual a 0.0")
+    @JsonProperty("presence_penalty")
     private double presencePenalty;
 
     @Schema(description = "Tempo limite para resposta da API")
     @Min(value = 0, message = "Tempo limite deve ser maior ou igual a 0")
+    @JsonProperty("timeout_seconds")
     private int timeoutSeconds;
 
     @Schema(description = "Status da configuração (ativo/inativo)")
